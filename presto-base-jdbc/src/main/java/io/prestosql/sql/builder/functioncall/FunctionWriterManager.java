@@ -42,21 +42,20 @@ public final class FunctionWriterManager
 
     private String connectorName;
 
-    private String versionName;
+
 
     /**
      * Base Function Rewriter Manager constructor
      *
      * @param connectorName connectorName
-     * @param versionName versionName
+
      * @param functionCallRewriterMap functionCallRewriterMap
      * @param connectorConfigFunctionRewriter Connector Config Function Rewriter
      * @param functionSignatureBuild function Signature Builder
      */
-    private FunctionWriterManager(String connectorName, String versionName, Map<String, FunctionCallRewriter> functionCallRewriterMap, DefaultConnectorConfigFunctionRewriter connectorConfigFunctionRewriter, Function<FunctionCallArgsPackage, String> functionSignatureBuild)
+    private FunctionWriterManager(String connectorName, Map<String, FunctionCallRewriter> functionCallRewriterMap, DefaultConnectorConfigFunctionRewriter connectorConfigFunctionRewriter, Function<FunctionCallArgsPackage, String> functionSignatureBuild)
     {
         this.connectorName = connectorName;
-        this.versionName = versionName;
         this.rewriteFunctionMap.putAll(functionCallRewriterMap);
         addConfigFunctionRewriter(connectorConfigFunctionRewriter);
         this.argsFunction = functionSignatureBuild;
